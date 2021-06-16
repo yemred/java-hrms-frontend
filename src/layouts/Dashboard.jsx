@@ -1,8 +1,13 @@
 import React from 'react'
 import { Grid, GridColumn } from 'semantic-ui-react'
-import Sidebar from './Sidebar'
+
 import EmployerList from "../pages/employer/EmployerList";
-import Footer from './Footer';
+
+import { Route } from 'react-router';
+import JobAdvertisement from '../pages/jobAdvertisement/JobAdvertisement';
+import UnEmployedList from '../pages/unEmployed/UnEmployedList';
+import SideBar from './SideBar';
+import ShareJobAdvertisement from '../pages/jobAdvertisement/ShareJobAdvertisement';
 
 export default function Dashboard() {
     return (
@@ -10,15 +15,14 @@ export default function Dashboard() {
             <Grid>
                 <Grid.Row>
                     <GridColumn width={4}>
-                        <Sidebar/>
+                        <SideBar />
                     </GridColumn>
                     <GridColumn width={12}>
-                        <EmployerList/>
-                    </GridColumn>
-                </Grid.Row>
-                <Grid.Row>
-                    <GridColumn width={16}>
-                        <Footer/>
+                        <Route exact path="/" component={JobAdvertisement}></Route>
+                        <Route path="/jobadvertisement" component={JobAdvertisement} ></Route>
+                        <Route path="/employer" component={EmployerList}></Route>
+                        <Route path="/unemployed" component={UnEmployedList}></Route>
+                        <Route path="/sharejobadvertisement" component={ShareJobAdvertisement}></Route>
                     </GridColumn>
                 </Grid.Row>
             </Grid>

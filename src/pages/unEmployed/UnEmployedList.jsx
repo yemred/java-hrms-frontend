@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import UnEmployedService from "../../services/unEmployedService/unEmployedService";
+import { Icon, Menu, Table } from "semantic-ui-react";
 
 export default function UnEmployedList() {
   const [unEmployeds, setUnEmployeds] = useState([]);
@@ -9,7 +10,7 @@ export default function UnEmployedList() {
     unEmployedService
       .getUnEmployeds()
       .then((result) => setUnEmployeds(result.data.data));
-  });
+  },[]);
 
   return (
     <div>
